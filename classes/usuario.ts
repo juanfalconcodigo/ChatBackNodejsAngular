@@ -4,10 +4,11 @@ class Usuario{
     sala:string;
     constructor(id:string){
         this.id=id;
-        this.nombre='No tiene nombre';
-        this.sala='No tiene sala';
+        this.nombre='sin-nombre';
+        this.sala='sin-sala';
     }
 }
 export{
     Usuario
 }
+

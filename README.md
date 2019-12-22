@@ -1,14 +1,14 @@
 # Socket - Server
 
->> Reconstruir módulos de Nodejs
+> Reconstruir módulos de Nodejs
 ```
 npm i
 ```
->> Generar el dist
+> Generar el dist
 ```
 tsc -w
 ```
->>Levantar el servidor
+> Levantar el servidor
 ```
 nodemon dist/
 node dist/

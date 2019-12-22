@@ -20,7 +20,7 @@ class UsuarioLista{
         console.log(this.lista);
     }
     getLista():Usuario[]{
-        return this.lista;
+        return this.lista.filter(usuario=>usuario.nombre!=='sin-nombre');
     }
     getUsuario(id:string):any{
         return this.lista.find((elemento)=>elemento.id===id);

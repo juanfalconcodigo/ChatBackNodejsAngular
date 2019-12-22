@@ -1,14 +1,31 @@
 import {Router,Request,Response} from 'express';
 import Server from '../classes/server';
+import { usuariosConectados } from '../sockets/socket';
 const router=Router();
 
-router.get('/mensaje',(req:Request,res:Response)=>{
+router.get('/usuario',(req:Request,res:Response)=>{
+    const server=Server.instance;
+    server.io.clients((err:any,clientes:string[])=>{
+        if(err){
+            return res.status(400).json({
+                ok:false,
+                err
+            });
+        }
+        res.status(200).json({
+            ok:true,
+            clientes
+        });
+    });
+});
+
+router.get('/usuario/detalle',(req:Request,res:Response)=>{
     res.status(200).json({
         ok:true,
-        message:'get'
+        clientes:usuariosConectados.getLista()
     });
-
 });
+
 
 router.post('/mensaje/:id',(req:Request,res:Response)=>{
     const{de,mensaje}=req.body;
